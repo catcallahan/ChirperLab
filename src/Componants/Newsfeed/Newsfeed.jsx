@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Chirp from "../Chirps/Chirp";
+import Chirpbird from "./chirpbird.png";
 
 export class Newsfeed extends Component {
   state = {
@@ -12,13 +13,25 @@ export class Newsfeed extends Component {
 
   addChirp = () => {
     this.props.insertChirp(this.state.words);
-    this.setState({ words: ''})
+    this.setState({ words: "" });
   };
 
   render() {
     return (
       <div className="container d-flex flex-column pt-3 ">
-        <h1 className="text-info">ChirpChirp</h1>
+        <h1 className="text-info ">
+          <a>
+            <img
+              src={Chirpbird}
+              alt="chirpy"
+              height="50px"
+              width="50px"
+              className="pr-1"
+            />
+          </a>
+          ChirpChirp
+        </h1>
+
         <div className="container-lg d-flex justify-content-start align-items-start pl-0 pr-0 pb-3 bg-light">
           <div className="input-group">
             <input
@@ -34,7 +47,7 @@ export class Newsfeed extends Component {
         {this.props.chirps.map(chirp => (
           <Chirp key={chirp.id} chirp={chirp} />
         ))}
-      </div>
+        </div>
     );
   }
 }
