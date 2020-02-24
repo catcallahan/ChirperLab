@@ -1,0 +1,8 @@
+Need to create three 'chirps' that load into a newsfeed and the ability to add more through an input. 
+
+* Newsfeed componant (not reused)
+* Input field (with button) navbar?
+* Chirp componant (reused)
+
+Only one ReactDom render!
+No CSS, only Bootstrap!
