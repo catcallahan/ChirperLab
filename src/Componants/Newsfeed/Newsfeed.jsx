@@ -19,18 +19,16 @@ export class Newsfeed extends Component {
   render() {
     return (
       <div className="container d-flex flex-column pt-3 ">
-        <h1 className="text-info ">
-          <a>
-            <img
+       <div className ='d-flex flex-row justify-content-lg-between'>
+        <h1 className="text-info mb-0 ">ChirpChirp</h1>
+        <img
               src={Chirpbird}
               alt="chirpy"
-              height="50px"
-              width="50px"
-              className="pr-1"
+              height="70px"
+              width="70px"
+              className="pb-1"
             />
-          </a>
-          ChirpChirp
-        </h1>
+       </div>
 
         <div className="container-lg d-flex justify-content-start align-items-start pl-0 pr-0 pb-3 bg-light">
           <div className="input-group">
@@ -44,9 +42,12 @@ export class Newsfeed extends Component {
             <button onClick={this.addChirp}>Chirp it!</button>
           </div>
         </div>
+        <div className ='d-flex flex-column bg-light'>
         {this.props.chirps.map(chirp => (
           <Chirp key={chirp.id} chirp={chirp} />
         ))}
+
+        </div>
         </div>
     );
   }
