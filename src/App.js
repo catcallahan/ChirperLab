@@ -11,7 +11,11 @@ class App extends Component {
   {
     id: 2,
     words: "Do you even Chirp?"
-  }]
+  },
+{
+  id:3,
+  words: 'Chirpin all day!'
+}]
 }
 
 insertChirp = (words) => {
