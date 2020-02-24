@@ -1,13 +1,34 @@
-import React from 'react';
+import React, { Component } from "react";
 import Newsfeed from '../src/Componants/Newsfeed/Newsfeed'
 
 
-function App() {
+class App extends Component {
+  state = { chirps: [
+    {
+      id: 1,
+      words: "Hello!"
+    },
+  {
+    id: 2,
+    words: "Do you even Chirp?"
+  }]
+}
+
+insertChirp = (words) => {
+  const newChirp = {
+      id: 4,
+      words
+  }
+  this.setState({ chirps: [...this.state.chirps, newChirp]})
+}
+
+  render(){
   return(
     <div className = 'newsfeed'>
-      <Newsfeed />
+      <Newsfeed chirps = {this.state.chirps} insertChirp = {this.insertChirp}/>
     </div>
   );
+}
 }
 
 export default App;

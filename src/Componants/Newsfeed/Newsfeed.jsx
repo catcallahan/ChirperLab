@@ -1,22 +1,39 @@
 import React, { Component } from "react";
-import Chirp from "../Chirps/Chirp"
+import Chirp from "../Chirps/Chirp";
 
 export class Newsfeed extends Component {
+  state = {
+    words: ""
+  };
+
+  changeValue = e => {
+    this.setState({ words: e.target.value });
+  };
+
+  addChirp = () => {
+    this.props.insertChirp(this.state.words);
+    this.setState({ words: ''})
+  };
+
   render() {
     return (
       <div className="container d-flex flex-column pt-3 ">
-        <h1 className = 'text-info'>ChirpChirp</h1>
+        <h1 className="text-info">ChirpChirp</h1>
         <div className="container-lg d-flex justify-content-start align-items-start pl-0 pr-0 pb-3 bg-light">
           <div className="input-group">
             <input
               type="text"
               className="form-control"
               placeholder="What's Chirpin?"
+              value={this.state.words}
+              onChange={this.changeValue}
             />
-            <button>Chirp it!</button>
+            <button onClick={this.addChirp}>Chirp it!</button>
           </div>
         </div>
-        <Chirp />
+        {this.props.chirps.map(chirp => (
+          <Chirp key={chirp.id} chirp={chirp} />
+        ))}
       </div>
     );
   }
